@@ -10,6 +10,8 @@
 		CFA7D98E283D921D00D8FDDE /* LAFloatyView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA7D985283D921D00D8FDDE /* LAFloatyView.framework */; };
 		CFA7D993283D921D00D8FDDE /* LAFloatyViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7D992283D921D00D8FDDE /* LAFloatyViewTests.swift */; };
 		CFA7D994283D921D00D8FDDE /* LAFloatyView.h in Headers */ = {isa = PBXBuildFile; fileRef = CFA7D988283D921D00D8FDDE /* LAFloatyView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFA7D99E283D930E00D8FDDE /* LAFloatyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7D99D283D930E00D8FDDE /* LAFloatyView.swift */; };
+		CFA7D9A0283D931A00D8FDDE /* LAFloatyViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA7D99F283D931A00D8FDDE /* LAFloatyViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 		CFA7D988283D921D00D8FDDE /* LAFloatyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAFloatyView.h; sourceTree = "<group>"; };
 		CFA7D98D283D921D00D8FDDE /* LAFloatyViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LAFloatyViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA7D992283D921D00D8FDDE /* LAFloatyViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAFloatyViewTests.swift; sourceTree = "<group>"; };
+		CFA7D99D283D930E00D8FDDE /* LAFloatyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAFloatyView.swift; sourceTree = "<group>"; };
+		CFA7D99F283D931A00D8FDDE /* LAFloatyViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAFloatyViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				CFA7D988283D921D00D8FDDE /* LAFloatyView.h */,
+				CFA7D99D283D930E00D8FDDE /* LAFloatyView.swift */,
+				CFA7D99F283D931A00D8FDDE /* LAFloatyViewDataSource.swift */,
 			);
 			path = LAFloatyView;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 				TargetAttributes = {
 					CFA7D984283D921D00D8FDDE = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
 					};
 					CFA7D98C283D921D00D8FDDE = {
 						CreatedOnToolsVersion = 13.3.1;
@@ -191,6 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFA7D99E283D930E00D8FDDE /* LAFloatyView.swift in Sources */,
+				CFA7D9A0283D931A00D8FDDE /* LAFloatyViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +345,7 @@
 		CFA7D998283D921D00D8FDDE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -357,6 +367,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +376,7 @@
 		CFA7D999283D921D00D8FDDE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -394,6 +406,7 @@
 		CFA7D99B283D921D00D8FDDE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BY986JF6MT;
@@ -410,6 +423,7 @@
 		CFA7D99C283D921D00D8FDDE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BY986JF6MT;
