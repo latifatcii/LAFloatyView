@@ -18,7 +18,7 @@ private enum LAFloatyViewState {
     }
 }
 
-final class LAFloatyView: UIView {
+public final class LAFloatyView: UIView {
     private var items: [UIButton] = []
     private let initialItem = UIButton()
     weak var datasource: LAFloatyViewDatasource? {
@@ -60,7 +60,7 @@ final class LAFloatyView: UIView {
         })
     }
     
-    func prepareUI() {
+    private func prepareUI() {
         guard let datasource = datasource else {
             return
         }
@@ -85,7 +85,7 @@ final class LAFloatyView: UIView {
         }
     }
     
-    @objc func firstButtonTapped() {
+    @objc private func firstButtonTapped() {
         switch state {
         case .leftOpen:
             close(x: -55)
