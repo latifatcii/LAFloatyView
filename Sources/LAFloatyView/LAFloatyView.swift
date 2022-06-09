@@ -21,7 +21,7 @@ private enum LAFloatyViewState {
 public final class LAFloatyView: UIView {
     private var items: [UIButton] = []
     private let initialItem = UIButton()
-    weak var datasource: LAFloatyViewDatasource? {
+    public weak var datasource: LAFloatyViewDatasource? {
         didSet {
             prepareUI()
         }
