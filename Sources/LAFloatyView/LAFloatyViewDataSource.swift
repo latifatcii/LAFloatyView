@@ -13,6 +13,7 @@ public protocol LAFloatyViewDatasource: AnyObject {
     var itemCornerRadius: CGFloat { get }
     
     func itemImage(at index: Int) -> UIImage?
+    func didSelectItem(at index: Int)
 }
 
 public extension LAFloatyViewDatasource {

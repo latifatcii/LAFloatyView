@@ -18,6 +18,36 @@ private enum LAFloatyViewState {
     }
 }
 
+private extension LAFloatyView {
+    enum Constants {
+        enum PanHandlerConstants {
+            static let centerXPaddingForLeftSide: CGFloat = 5
+            static let centerXPaddingForRightSide: CGFloat = 55
+        }
+        
+        enum AnimateItemsConstants {
+            static let animationDuration: CGFloat = 0.5
+            static let usingSpringWithDamping: CGFloat = 1
+            static let initialSpringVelocity: CGFloat = 1
+            static let itemYPadding: Int = 55
+        }
+        
+        enum PrepareUIConstants {
+            static let initialItemCenterXPadding: CGFloat = 55
+            static let initialItemCenterYPadding: CGFloat = 150
+            static let otherItemsPadding: Int = 55
+        }
+        
+        enum OpenCloseAnimationConstants {
+            static let animationDuration: CGFloat = 0.3
+            static let usingSpringWithDamping: CGFloat = 0.55
+            static let initialSpringVelocity: CGFloat = 0.3
+            static let alpha: CGFloat = 1
+            static let delay: CGFloat = 0.1
+        }
+    }
+}
+
 public final class LAFloatyView: UIView {
     private var items: [UIButton] = []
     private let initialItem = UIButton()
@@ -37,19 +67,19 @@ public final class LAFloatyView: UIView {
         
         if gesture.state == .ended {
             if initialItem.frame.midX >= self.layer.frame.width / 2 {
-            animateItems(firstButtonX: frame.maxX - 55, itemsX: 55, state: .rightClosed)
+                animateItems(firstButtonX: frame.maxX - Constants.PanHandlerConstants.centerXPaddingForRightSide, itemsX: Constants.PanHandlerConstants.centerXPaddingForRightSide, state: .rightClosed)
             } else {
-            animateItems(firstButtonX: frame.minX + 5, itemsX: -55, state: .leftClosed)
+            animateItems(firstButtonX: frame.minX + Constants.PanHandlerConstants.centerXPaddingForLeftSide, itemsX: -Constants.PanHandlerConstants.centerXPaddingForRightSide, state: .leftClosed)
             }
         }
     }
     
     private func animateItems(firstButtonX: CGFloat, itemsX: CGFloat, state: LAFloatyViewState) {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+        UIView.animate(withDuration: Constants.AnimateItemsConstants.animationDuration, delay: 0, usingSpringWithDamping: Constants.AnimateItemsConstants.usingSpringWithDamping, initialSpringVelocity: Constants.AnimateItemsConstants.initialSpringVelocity, options: .curveEaseIn, animations: {
             self.initialItem.frame.origin.x = firstButtonX
             guard let dataSource = self.datasource else { return }
             for i in 1...dataSource.itemCount {
-                let itemY = CGFloat((i) * 55)
+                let itemY = CGFloat((i) * Constants.AnimateItemsConstants.itemYPadding)
                 self.items[i-1].center.x = self.initialItem.center.x + itemsX
                 self.items[i-1].center.y = self.initialItem.center.y - itemY
             }
@@ -66,7 +96,7 @@ public final class LAFloatyView: UIView {
         }
         backgroundColor = .clear
         addSubview(initialItem)
-        initialItem.frame = .init(x: frame.maxX - 55, y: frame.maxY - 150, width: datasource.itemSize.width, height: datasource.itemSize.height)
+        initialItem.frame = .init(x: frame.maxX - Constants.PrepareUIConstants.initialItemCenterXPadding, y: frame.maxY - Constants.PrepareUIConstants.initialItemCenterYPadding, width: datasource.itemSize.width, height: datasource.itemSize.height)
         initialItem.backgroundColor = .red
         initialItem.layer.cornerRadius = datasource.itemCornerRadius
         initialItem.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
@@ -74,15 +104,21 @@ public final class LAFloatyView: UIView {
         
         
         for i in 1...datasource.itemCount {
-            let itemY = CGFloat((i) * 55)
-            let item = UIButton(frame: .init(x: initialItem.frame.origin.x + 55, y: initialItem.frame.origin.y - itemY, width: datasource.itemSize.width, height: datasource.itemSize.height))
+            let itemY = CGFloat((i) * Constants.PrepareUIConstants.otherItemsPadding)
+            let item = UIButton(frame: .init(x: initialItem.frame.origin.x + CGFloat(Constants.PrepareUIConstants.otherItemsPadding), y: initialItem.frame.origin.y - itemY, width: datasource.itemSize.width, height: datasource.itemSize.height))
             item.backgroundColor = .blue
             item.layer.cornerRadius = datasource.itemCornerRadius
             item.setImage(datasource.itemImage(at: i), for: .normal)
+            item.addTarget(self, action: #selector(itemTapped(sender:)), for: .touchUpInside)
+            item.tag = i
             item.alpha = 0
             addSubview(item)
             items.append(item)
         }
+    }
+    
+    @objc private func itemTapped(sender: UIButton) {
+        datasource?.didSelectItem(at: sender.tag)
     }
     
     @objc private func firstButtonTapped() {
@@ -105,23 +141,23 @@ public final class LAFloatyView: UIView {
     private func open() {
         var delay = 0.0
         for item in items {
-            UIView.animate(withDuration: 0.3, delay: delay, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3, options: UIView.AnimationOptions()) {
-                item.alpha = 1
+            UIView.animate(withDuration: Constants.OpenCloseAnimationConstants.animationDuration, delay: delay, usingSpringWithDamping: Constants.OpenCloseAnimationConstants.usingSpringWithDamping, initialSpringVelocity: Constants.OpenCloseAnimationConstants.initialSpringVelocity, options: .transitionFlipFromRight) {
+                item.alpha = Constants.OpenCloseAnimationConstants.alpha
                 item.frame.origin.x = self.initialItem.frame.origin.x
             }
             
-            delay += 0.1
+            delay += Constants.OpenCloseAnimationConstants.delay
         }
     }
     
     private func close(x: CGFloat = 55) {
         var delay = 0.0
         for item in items.reversed() {
-            UIView.animate(withDuration: 0.3, delay: delay, usingSpringWithDamping: 0.55, initialSpringVelocity: 0.3, options: .transitionFlipFromRight) {
-                item.alpha = 1
+            UIView.animate(withDuration: Constants.OpenCloseAnimationConstants.animationDuration, delay: delay, usingSpringWithDamping: Constants.OpenCloseAnimationConstants.usingSpringWithDamping, initialSpringVelocity: Constants.OpenCloseAnimationConstants.initialSpringVelocity, options: .transitionFlipFromRight) {
+                item.alpha = Constants.OpenCloseAnimationConstants.alpha
                 item.frame.origin.x = self.initialItem.frame.origin.x + x
             }
-            delay += 0.1
+            delay += Constants.OpenCloseAnimationConstants.delay
         }
     }
 }
