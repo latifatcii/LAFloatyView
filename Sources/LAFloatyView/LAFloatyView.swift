@@ -104,6 +104,8 @@ public final class LAFloatyView: UIView {
         addSubview(initialItem)
         initialItem.frame = .init(x: frame.maxX - Constants.PrepareUIConstants.initialItemCenterXPadding, y: frame.maxY - Constants.PrepareUIConstants.initialItemCenterYPadding, width: datasource.itemSize.width, height: datasource.itemSize.height)
         initialItem.layer.cornerRadius = datasource.itemCornerRadius
+        initialItem.backgroundColor = .white
+        initialItem.layer.shadowOpacity = 1
         initialItem.setImage(datasource.itemImage(at: 0), for: .normal)
         initialItem.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
         initialItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panHandler)))
@@ -116,6 +118,8 @@ public final class LAFloatyView: UIView {
             item.setImage(datasource.itemImage(at: i), for: .normal)
             item.addTarget(self, action: #selector(itemTapped(sender:)), for: .touchUpInside)
             item.tag = i
+            item.backgroundColor = .white
+            item.layer.shadowOpacity = 1
             item.alpha = 0
             addSubview(item)
             items.append(item)
@@ -124,6 +128,7 @@ public final class LAFloatyView: UIView {
     
     @objc private func itemTapped(sender: UIButton) {
         datasource?.didSelectItem(at: sender.tag)
+        firstButtonTapped()
     }
     
     @objc private func firstButtonTapped() {
