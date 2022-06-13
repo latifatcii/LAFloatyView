@@ -57,6 +57,12 @@ public final class LAFloatyView: UIView {
         }
     }
     
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event)
+        if view == self { return nil }
+        return view
+    }
+    
     private var state: LAFloatyViewState = .rightClosed
     
     @objc private func panHandler(gesture: UIPanGestureRecognizer) {
@@ -97,8 +103,8 @@ public final class LAFloatyView: UIView {
         backgroundColor = .clear
         addSubview(initialItem)
         initialItem.frame = .init(x: frame.maxX - Constants.PrepareUIConstants.initialItemCenterXPadding, y: frame.maxY - Constants.PrepareUIConstants.initialItemCenterYPadding, width: datasource.itemSize.width, height: datasource.itemSize.height)
-        initialItem.backgroundColor = .red
         initialItem.layer.cornerRadius = datasource.itemCornerRadius
+        initialItem.setImage(datasource.itemImage(at: 0), for: .normal)
         initialItem.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
         initialItem.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panHandler)))
         
@@ -106,7 +112,6 @@ public final class LAFloatyView: UIView {
         for i in 1...datasource.itemCount {
             let itemY = CGFloat((i) * Constants.PrepareUIConstants.otherItemsPadding)
             let item = UIButton(frame: .init(x: initialItem.frame.origin.x + CGFloat(Constants.PrepareUIConstants.otherItemsPadding), y: initialItem.frame.origin.y - itemY, width: datasource.itemSize.width, height: datasource.itemSize.height))
-            item.backgroundColor = .blue
             item.layer.cornerRadius = datasource.itemCornerRadius
             item.setImage(datasource.itemImage(at: i), for: .normal)
             item.addTarget(self, action: #selector(itemTapped(sender:)), for: .touchUpInside)
