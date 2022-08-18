@@ -1,0 +1,149 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyViewPackageTests.xctest/Contents/MacOS/LAFloatyViewPackageTests",
+      "productName" : "LAFloatyViewPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.LAFloatyView-release.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "importPath" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Sources/LAFloatyView/LAFloatyView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Sources/LAFloatyView/LAFloatyViewDataSource.swift"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "LAFloatyView",
+      "moduleOutputPath" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.swiftmodule",
+      "objects" : [
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.build/LAFloatyView.swift.o",
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.build/LAFloatyViewDataSource.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx10.10",
+        "-swift-version",
+        "5",
+        "-O",
+        "-g",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-module-cache-path",
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.build/LAFloatyView-Swift.h",
+        "-color-diagnostics",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.build/LAFloatyView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.build/LAFloatyViewDataSource.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Sources/LAFloatyView/LAFloatyView.swift",
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Sources/LAFloatyView/LAFloatyViewDataSource.swift"
+      ],
+      "tempsPath" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.build",
+      "wholeModuleOptimization" : true
+    },
+    "C.LAFloatyViewTests-release.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "importPath" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Tests/LAFloatyViewTests/LAFloatyViewTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.swiftmodule"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "LAFloatyViewTests",
+      "moduleOutputPath" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyViewTests.swiftmodule",
+      "objects" : [
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyViewTests.build/LAFloatyViewTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx11.0",
+        "-swift-version",
+        "5",
+        "-index-store-path",
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/index/store",
+        "-O",
+        "-g",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-module-cache-path",
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyViewTests.build/LAFloatyViewTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyViewTests.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Tests/LAFloatyViewTests/LAFloatyViewTests.swift"
+      ],
+      "tempsPath" : "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyViewTests.build",
+      "wholeModuleOptimization" : true
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "testDiscoveryCommands" : {
+
+  }
+}

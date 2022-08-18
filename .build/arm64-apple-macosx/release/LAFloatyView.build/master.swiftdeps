@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
+options: "fcc8c77a83aa25959c46abf22b6105ed89fa3b9fef8b0fde8e1468c02e57e378"
+build_start_time: [1656315226, 637398004]
+build_end_time: [1656315226, 915372848]
+inputs:
+  "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Sources/LAFloatyView/LAFloatyView.swift": !dirty [1655205342, 236382007]
+  "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/Sources/LAFloatyView/LAFloatyViewDataSource.swift": !dirty [1655205342, 236564159]

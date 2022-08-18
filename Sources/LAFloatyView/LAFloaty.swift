@@ -18,7 +18,7 @@ private enum LAFloatyViewState {
     }
 }
 
-private extension LAFloatyView {
+private extension LAFloaty {
     enum Constants {
         enum PanHandlerConstants {
             static let centerXPaddingForLeftSide: CGFloat = 5
@@ -48,7 +48,7 @@ private extension LAFloatyView {
     }
 }
 
-public final class LAFloatyView: UIView {
+public final class LAFloaty: UIView {
     private var items: [UIButton] = []
     private let initialItem = UIButton()
     public weak var datasource: LAFloatyViewDatasource? {

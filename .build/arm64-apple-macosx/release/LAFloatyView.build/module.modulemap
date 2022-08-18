@@ -1,0 +1,4 @@
+module LAFloatyView {
+    header "/Users/abdullatif.atci/Developer/work/Personal/LAFloatyView/.build/arm64-apple-macosx/release/LAFloatyView.build/LAFloatyView-Swift.h"
+    requires objc
+}
